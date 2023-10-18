@@ -77,14 +77,32 @@ const LearnerSubmissions = [
 ];
 
 // the ID of the learner for which this data has been collected
-learners_ids = [];
+ let learners_ids = [];
 LearnerSubmissions.forEach(learner => {
     for (const key in learner) {
-        if (key === 'learner_id')
+        if (key === 'learner_id' && !(learners_ids.includes(learner[key])))
             learners_ids.push(learner[key]);
     }
 });
 console.log(learners_ids);
+
+/** each assignment should have a key with its ID,
+ * and the value associated with it should be the percentage that
+ * the learner scored on the assignment (submission.score / points_possible)
+*/
+let assignmentsTotal = 0;
+for (const key in AssignmentGroup) {
+    if (key === "assignments") {
+        AssignmentGroup[key].forEach(element => {
+            for (const keyElement in element) {
+                if (keyElement === "points_possible") {
+                    assignmentsTotal += element[keyElement];
+                }
+            }
+        })
+    }
+}
+console.log(assignmentsTotal);
 
 function getLearnerData(CourseInfo, AssignmentGroup, [LearnerSubmissions]) {
     // here, we would process this data to achieve the desired result.
