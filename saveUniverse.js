@@ -77,7 +77,7 @@ const LearnerSubmissions = [
 ];
 
 // the ID of the learner for which this data has been collected
- let learners_ids = [];
+let learners_ids = [];
 LearnerSubmissions.forEach(learner => {
     for (const key in learner) {
         if (key === 'learner_id' && !(learners_ids.includes(learner[key])))
@@ -90,6 +90,18 @@ console.log(learners_ids);
  * and the value associated with it should be the percentage that
  * the learner scored on the assignment (submission.score / points_possible)
 */
+LearnerSubmissions.forEach(learner => {
+    for (const key in learner) {
+        const learnerObj = learner[key];
+        for (const grade in learnerObj) {
+            if (key === 'score') {
+
+            }
+        }
+    }
+});
+
+// assignmentsTotal
 let assignmentsTotal = 0;
 for (const key in AssignmentGroup) {
     if (key === "assignments") {
@@ -116,4 +128,31 @@ const result = getLearnerData(CourseInfo, AssignmentGroup, LearnerSubmissions);
 
 console.log(result);
 
+// converted objects of learners into multiple arrays
+let learners = [];
+LearnerSubmissions.forEach(learner => {
+        learners.push(Object.values(learner));
+});
+// let learnersArray = [];
+// for (let i = 0; i < learners.length; i++) {
+//     for (let j = 0; j < learners[i].length; j++) {
+//     if (typeof learners[i][j] !== "object") {
+//         learnersArray.push(learners[i][j]);
+//     } else {
+//         learnersArray.push(Object.values(learners[i][j]));
+//     }
+// }
+// };
+console.log(learners);
+// console.log(learnersArray);
 
+
+
+// converted objects of assignments into multiple arrays
+for (const key in AssignmentGroup) {
+    if (key === "assignments") {
+        AssignmentGroup[key].forEach(element => {
+            console.log(Object.values(element));
+        })
+    }
+}
