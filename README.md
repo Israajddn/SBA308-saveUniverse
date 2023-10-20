@@ -4,13 +4,13 @@ I wanted to loop through each object and compare to get the result, but I felt t
 
 - Declare variables properly using let and const where appropriate. (done)
 - Use operators to perform calculations on variables and literals. (done)
-- Use strings, numbers, and Boolean values cached within variables.
-- Use at least two if/else statements to control program flow. Optionally, use at least one switch statement.
+- Use strings, numbers, and Boolean values cached within variables. (done)
+- Use at least two if/else statements to control program flow. Optionally, use at least one switch statement. (done)
 - Use try/catch statements to manage potential errors in the code, such as incorrectly formatted or typed data being fed into your program. (done)
-- Utilize at least two different types of loops.
-- Utilize at least one loop control keyword such as break or continue.
+- Utilize at least two different types of loops. (done)
+- Utilize at least one loop control keyword such as break or continue. (done)
 - Create and/or manipulate arrays and objects. (done)
-- Use functions to handle repeated tasks.
+- Use functions to handle repeated tasks. (done)
 - Program outputs processed data as described above. (done)
 - Ensure that the program runs without errors (done)
 - Commit frequently to the git repository. (done)

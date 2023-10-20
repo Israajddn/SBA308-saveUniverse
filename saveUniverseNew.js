@@ -90,15 +90,19 @@ function getLearnerData(course, ag, submissions) {
             learners_ids = [];
             LearnerSubmissions.forEach(learner => {
                 for (const key in learner) {
-                    if (key === 'learner_id' && !(learners_ids.includes(learner[key])))
+                    if (key === 'learner_id') {
+                        if (learners_ids.includes(learner[key])) {
+                            continue;
+                        }
                         learners_ids.push(learner[key]);
+                    }
                 }
             });
             result[0][0] = learners_ids[0];
             result[1][0] = learners_ids[1];
 
             try {
-                if ((AssignmentGroup.assignments[0].points_possible !== 0 && typeof AssignmentGroup.assignments[0].points_possible !== "string") && (AssignmentGroup.assignments[1].points_possible !== 0 && typeof AssignmentGroup.assignments[1].points_possible !== "string") && (AssignmentGroup.assignments[2].points_possible !== 0 && typeof AssignmentGroup.assignments[2].points_possible !== "string"))  {
+                if ((AssignmentGroup.assignments[0].points_possible !== 0 && typeof AssignmentGroup.assignments[0].points_possible !== "string") && (AssignmentGroup.assignments[1].points_possible !== 0 && typeof AssignmentGroup.assignments[1].points_possible !== "string") && (AssignmentGroup.assignments[2].points_possible !== 0 && typeof AssignmentGroup.assignments[2].points_possible !== "string")) {
                     // grades for student1
                     let s1grade1 = LearnerSubmissions[0].submission.score / AssignmentGroup.assignments[0].points_possible * 100;
                     let s1grade2 = LearnerSubmissions[1].submission.score / AssignmentGroup.assignments[1].points_possible * 100;
