@@ -6,7 +6,7 @@ I wanted to loop through each object and compare to get the result, but I felt t
 - Use operators to perform calculations on variables and literals. (done)
 - Use strings, numbers, and Boolean values cached within variables.
 - Use at least two if/else statements to control program flow. Optionally, use at least one switch statement.
-- Use try/catch statements to manage potential errors in the code, such as incorrectly formatted or typed data being fed into your program.
+- Use try/catch statements to manage potential errors in the code, such as incorrectly formatted or typed data being fed into your program. (done)
 - Utilize at least two different types of loops.
 - Utilize at least one loop control keyword such as break or continue.
 - Create and/or manipulate arrays and objects. (done)
