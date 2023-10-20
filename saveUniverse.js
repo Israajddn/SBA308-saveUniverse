@@ -76,8 +76,48 @@ const LearnerSubmissions = [
     }
 ];
 
+
+function getLearnerData(CourseInfo, AssignmentGroup, [LearnerSubmissions]) {
+    // here, we would process this data to achieve the desired result.
+    const result = [];
+
+  
+
+
+    return result;
+}
+
+const result = getLearnerData(CourseInfo, AssignmentGroup, LearnerSubmissions);
+
+console.log(result);
+
+
+
+
+
+
+// // the ID of the learner for which this data has been collected
+// let learners_ids = [];
+// let arr = [];
+
+// LearnerSubmissions.forEach(learner => {
+//     const obj = {
+//         learnerId: learner.learner_id,
+//         assignmentId: learner.assignment_id,
+        
+//     };
+//    arr.push(obj);
+
+//     // for (const key in learner) {
+//     //     if (key === 'learner_id' && !(learners_ids.includes(learner[key])))
+//     //         learners_ids.push(learner[key]);
+//     // }
+// });
+// console.log(arr);
+
+
 // the ID of the learner for which this data has been collected
-let learners_ids = [];
+learners_ids = [];
 LearnerSubmissions.forEach(learner => {
     for (const key in learner) {
         if (key === 'learner_id' && !(learners_ids.includes(learner[key])))
@@ -85,6 +125,7 @@ LearnerSubmissions.forEach(learner => {
     }
 });
 console.log(learners_ids);
+
 
 /** each assignment should have a key with its ID,
  * and the value associated with it should be the percentage that
@@ -116,35 +157,27 @@ for (const key in AssignmentGroup) {
 }
 console.log(assignmentsTotal);
 
-function getLearnerData(CourseInfo, AssignmentGroup, [LearnerSubmissions]) {
-    // here, we would process this data to achieve the desired result.
-    const result = [];
-
-
-    return result;
-}
-
-const result = getLearnerData(CourseInfo, AssignmentGroup, LearnerSubmissions);
-
-console.log(result);
-
 // converted objects of learners into multiple arrays
 let learners = [];
 LearnerSubmissions.forEach(learner => {
-        learners.push(Object.values(learner));
+    learners.push(Object.values(learner));
 });
-// let learnersArray = [];
-// for (let i = 0; i < learners.length; i++) {
-//     for (let j = 0; j < learners[i].length; j++) {
-//     if (typeof learners[i][j] !== "object") {
-//         learnersArray.push(learners[i][j]);
-//     } else {
-//         learnersArray.push(Object.values(learners[i][j]));
-//     }
-// }
-// };
 console.log(learners);
-// console.log(learnersArray);
+
+// converted objects of submissions into arrays
+let learnersArray = [];
+console.log(submissionObjects);
+for (let i = 0; i < learners.length; i++) {
+    for (let j = 0; j < learners[i].length; j++) {
+    if (typeof learners[i][j] === "object") {
+        
+        learnersArray.push(Object.values(learners[i][j]));
+    } 
+}
+};
+console.log(learnersArray);
+
+
 
 
 
