@@ -96,24 +96,24 @@ console.log(result);
 
 
 
-// // the ID of the learner for which this data has been collected
-// let learners_ids = [];
-// let arr = [];
+// the ID of the learner for which this data has been collected
+let learners_ids = [];
+let arr = [];
 
-// LearnerSubmissions.forEach(learner => {
-//     const obj = {
-//         learnerId: learner.learner_id,
-//         assignmentId: learner.assignment_id,
+LearnerSubmissions.forEach(learner => {
+    const obj = {
+        learnerId: learner.learner_id,
+        assignmentId: learner.assignment_id,
         
-//     };
-//    arr.push(obj);
+    };
+   arr.push(obj);
 
-//     // for (const key in learner) {
-//     //     if (key === 'learner_id' && !(learners_ids.includes(learner[key])))
-//     //         learners_ids.push(learner[key]);
-//     // }
-// });
-// console.log(arr);
+    // for (const key in learner) {
+    //     if (key === 'learner_id' && !(learners_ids.includes(learner[key])))
+    //         learners_ids.push(learner[key]);
+    // }
+});
+console.log(arr);
 
 
 // the ID of the learner for which this data has been collected
@@ -166,7 +166,7 @@ console.log(learners);
 
 // converted objects of submissions into arrays
 let learnersArray = [];
-console.log(submissionObjects);
+
 for (let i = 0; i < learners.length; i++) {
     for (let j = 0; j < learners[i].length; j++) {
     if (typeof learners[i][j] === "object") {
