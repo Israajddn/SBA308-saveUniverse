@@ -113,10 +113,10 @@ function getLearnerData(course, ag, submissions) {
                     let s2grade2 = LearnerSubmissions[4].submission.score / AssignmentGroup.assignments[1].points_possible * 100;
 
                     // average for student1
-                    let s1average = Math.round((LearnerSubmissions[0].submission.score + LearnerSubmissions[1].submission.score + LearnerSubmissions[2].submission.score) / (AssignmentGroup.assignments[0].points_possible + AssignmentGroup.assignments[1].points_possible + AssignmentGroup.assignments[2].points_possible) * 100);
+                    let s1average = (LearnerSubmissions[0].submission.score + LearnerSubmissions[1].submission.score + LearnerSubmissions[2].submission.score) / (AssignmentGroup.assignments[0].points_possible + AssignmentGroup.assignments[1].points_possible + AssignmentGroup.assignments[2].points_possible) * 100;
 
                     // average for student2
-                    let s2average = Math.round((LearnerSubmissions[3].submission.score + LearnerSubmissions[4].submission.score) / (AssignmentGroup.assignments[0].points_possible + AssignmentGroup.assignments[1].points_possible) * 100);
+                    let s2average = (LearnerSubmissions[3].submission.score + LearnerSubmissions[4].submission.score) / (AssignmentGroup.assignments[0].points_possible + AssignmentGroup.assignments[1].points_possible) * 100;
 
                     // result for student 1
 
@@ -128,7 +128,7 @@ function getLearnerData(course, ag, submissions) {
                     // result for student 2
 
                     result[1][1] = s2grade1;
-                    result[1][2] = Math.round(s2grade2);
+                    result[1][2] = s2grade2;
                     result[1][3] = s2average;
                 } else {
                     throw "Please make sure possible point is not a zero or a string";
@@ -145,6 +145,13 @@ function getLearnerData(course, ag, submissions) {
                 third_assignment: result[0][3],
                 avg: result[0][4],
             };
+
+            // check if assignment is not due yet!
+            if (AssignmentGroup.assignments[2].due_at > LearnerSubmissions[2].submission.submitted_at) {
+                delete student1.third_assignment;
+                s1average = (LearnerSubmissions[0].submission.score + LearnerSubmissions[1].submission.score) / (AssignmentGroup.assignments[0].points_possible + AssignmentGroup.assignments[1].points_possible) * 100;
+                student1.avg = s1average;
+              }
 
             Result.push(student1);
 

@@ -146,6 +146,12 @@ function getLearnerData(course, ag, submissions) {
               avg: result[0][4],
           };
 
+          if (AssignmentGroup.assignments[2].due_at > LearnerSubmissions[2].submission.submitted_at) {
+            delete student1.third_assignment;
+            s1average = Math.round((LearnerSubmissions[0].submission.score + LearnerSubmissions[1].submission.score) / (AssignmentGroup.assignments[0].points_possible + AssignmentGroup.assignments[1].points_possible) * 100);
+            student1.avg = s1average;
+          }
+
           Result.push(student1);
 
 
