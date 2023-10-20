@@ -155,6 +155,12 @@ function getLearnerData(course, ag, submissions) {
                 avg: result[1][3],
             };
 
+            // deduct 10% for late assignments
+            if (AssignmentGroup.assignments[1].due_at < LearnerSubmissions[4].submission.submitted_at) {
+                let deductTenPercent = result[1][2] / 10;
+                student2.second_assignment = result[1][2]- deductTenPercent;
+              }
+
             Result.push(student2);
 
             return Result;

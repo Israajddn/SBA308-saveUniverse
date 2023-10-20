@@ -141,12 +141,13 @@ function getLearnerData(course, ag, submissions) {
           const student1 = {
               id: result[0][0],
               first_assignment: result[0][1],
-              second_assignment: result[0][3],
+              second_assignment: result[0][2],
               third_assignment: result[0][3],
               avg: result[0][4],
           };
 
           Result.push(student1);
+
 
           const student2 = {
               id: result[1][0],
@@ -154,6 +155,11 @@ function getLearnerData(course, ag, submissions) {
               second_assignment: result[1][2],
               avg: result[1][3],
           };
+
+          if (AssignmentGroup.assignments[1].due_at < LearnerSubmissions[4].submission.submitted_at) {
+            let deductTenPercent = result[1][2] / 10;
+            student2.second_assignment = result[1][2]- deductTenPercent;
+          }
 
           Result.push(student2);
 
